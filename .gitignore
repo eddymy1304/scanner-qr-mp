@@ -14,3 +14,7 @@ xcuserdata/
 Pods/
 *.xcworkspace/xcuserdata/
 .kotlin/
+# Xcode (proyecto generado por xcodegen; fuente = project.yml)
+sample/iosApp/ScannerSampleIos.xcodeproj/
+sample/iosApp/build/
+DerivedData/

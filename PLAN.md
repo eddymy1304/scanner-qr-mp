@@ -34,7 +34,7 @@ Librería KMP de escaneo QR/Barcode reusable en proyectos Android, iOS (Swift) y
 - [x] **Fase 2** — Motor Android: CameraX analyzer manual + ML Kit bundled, `CameraPreview` con `CameraXViewfinder`. Verificado en emulador (escena virtual con QR: detección end-to-end OK).
 - [x] **Fase 3** — UI + MVI: `ScannerViewModel`, permisos (Android+iOS), `DefaultScannerOverlay`, `QrScanner`/`CodeScanner`, `ScannerController`, lifecycle. Verificado en emulador (permisos, detección, SingleShot+resume, highlight).
 - [x] **Fase 4** — Motor iOS: `AVCaptureSession` + Vision en Kotlin/Native, `UIKitView` preview, permisos iOS. Compila para device+simulador; **pendiente afinar en dispositivo físico** (CPU, corners, focus, torch).
-- [ ] **Fase 5** — Umbrella iOS: `ScannerViewController`, `ScannerConfigBuilder`, SKIE, XCFramework, sample Swift.
+- [x] **Fase 5** — Umbrella iOS: `ScannerViewController`, `ScannerConfigBuilder`, XCFramework, sample Swift (xcodegen). Verificado en simulador (UI Compose + estado de error sin cámara). SKIE pendiente: 0.10.13 no soporta Kotlin 2.4.10.
 - [ ] **Fase 6** — Features MVP: haptics/sonido, success highlight con corners, ROI, switch cámara, pinch/tap.
 - [ ] **Fase 7** — Publicación: vanniktech maven-publish → GH Packages, Package.swift + checksum en CI, README, binary-compatibility-validator, `v0.1.0`.
 
