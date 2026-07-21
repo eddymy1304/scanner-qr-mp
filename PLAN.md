@@ -31,7 +31,7 @@ Librería KMP de escaneo QR/Barcode reusable en proyectos Android, iOS (Swift) y
 
 - [x] **Fase 0** — Scaffold: build-logic (convention plugins), catalog, módulos compilando Android + iOS.
 - [x] **Fase 1** — Core: modelos, configs, `DetectionFilter` + tests (Turbine).
-- [ ] **Fase 2** — Motor Android: CameraX analyzer manual + ML Kit bundled, `CameraPreview` con `CameraXViewfinder`.
+- [x] **Fase 2** — Motor Android: CameraX analyzer manual + ML Kit bundled, `CameraPreview` con `CameraXViewfinder`. Verificado en emulador (escena virtual con QR: detección end-to-end OK).
 - [ ] **Fase 3** — UI + MVI: `ScannerViewModel`, permisos Android, `DefaultScannerOverlay`, `QrScanner`/`CodeScanner`, `ScannerController`, lifecycle.
 - [ ] **Fase 4** — Motor iOS: `AVCaptureSession` + Vision en Kotlin/Native, `UIKitView` preview, permisos iOS. Verificar en dispositivo físico.
 - [ ] **Fase 5** — Umbrella iOS: `ScannerViewController`, `ScannerConfigBuilder`, SKIE, XCFramework, sample Swift.
