@@ -11,6 +11,8 @@ kotlin {
             api(projects.scannerCore)
             api(projects.scannerCamera)
             api(projects.scannerUi)
+            // El plugin de Compose exige el runtime en el compile classpath del módulo.
+            implementation(compose.runtime)
         }
     }
 }
