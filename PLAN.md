@@ -7,7 +7,7 @@ Librería KMP de escaneo QR/Barcode reusable en proyectos Android, iOS (Swift) y
 | Tema | Decisión |
 |---|---|
 | UI | Compose Multiplatform total; iOS nativo consume `ScannerViewController` (UIViewController) |
-| Motor Android | CameraX 1.5 (`camera-compose` / `CameraXViewfinder`) + ML Kit barcode **bundled** (sin Play Services) |
+| Motor Android | CameraX 1.6 (`camera-compose` / `CameraXViewfinder`) + ML Kit barcode **bundled** (sin Play Services) |
 | Motor iOS | AVFoundation (`AVCaptureSession`) + Vision (`VNDetectBarcodesRequest`), preview vía `UIKitView` |
 | Distribución | Maven privado (GitHub Packages) + XCFramework vía SPM |
 | Arquitectura | Clean + MVI/MVVM estilo NIA / Pokedex-Compose (convention plugins, UDF, StateFlow, sealed interfaces) |
@@ -32,7 +32,7 @@ Librería KMP de escaneo QR/Barcode reusable en proyectos Android, iOS (Swift) y
 - [x] **Fase 0** — Scaffold: build-logic (convention plugins), catalog, módulos compilando Android + iOS.
 - [x] **Fase 1** — Core: modelos, configs, `DetectionFilter` + tests (Turbine).
 - [x] **Fase 2** — Motor Android: CameraX analyzer manual + ML Kit bundled, `CameraPreview` con `CameraXViewfinder`. Verificado en emulador (escena virtual con QR: detección end-to-end OK).
-- [ ] **Fase 3** — UI + MVI: `ScannerViewModel`, permisos Android, `DefaultScannerOverlay`, `QrScanner`/`CodeScanner`, `ScannerController`, lifecycle.
+- [x] **Fase 3** — UI + MVI: `ScannerViewModel`, permisos (Android+iOS), `DefaultScannerOverlay`, `QrScanner`/`CodeScanner`, `ScannerController`, lifecycle. Verificado en emulador (permisos, detección, SingleShot+resume, highlight).
 - [ ] **Fase 4** — Motor iOS: `AVCaptureSession` + Vision en Kotlin/Native, `UIKitView` preview, permisos iOS. Verificar en dispositivo físico.
 - [ ] **Fase 5** — Umbrella iOS: `ScannerViewController`, `ScannerConfigBuilder`, SKIE, XCFramework, sample Swift.
 - [ ] **Fase 6** — Features MVP: haptics/sonido, success highlight con corners, ROI, switch cámara, pinch/tap.
@@ -45,3 +45,13 @@ Librería KMP de escaneo QR/Barcode reusable en proyectos Android, iOS (Swift) y
 - F4: sample iOS en dispositivo físico, CPU < ~30 % en Instruments durante escaneo continuo.
 - F5: app Swift recibe `ScanResult` con enums limpios (SKIE).
 - F7: proyecto Android externo (GH Packages) + proyecto Xcode externo (SPM) consumiendo.
+
+## Stack actual (verificado 2026-07-21)
+
+Gradle 9.6.1 · AGP 9.3.0 (`com.android.kotlin.multiplatform.library`) · Kotlin 2.4.10 ·
+Compose MP 1.11.1 · CameraX 1.6.1 · lifecycle MP 2.11.0 · coroutines 1.11.0 · ML Kit barcode 17.3.0 ·
+JDK 21 (daemon) / toolchain 17 · compileSdk 37 / minSdk 24 · targets: android, iosArm64, iosSimulatorArm64
+(iosX64 eliminado: CMP 1.11 no lo publica).
+
+Nota emulador: el detector de ML Kit en el emulador solo reconoce códigos que ocupan gran parte del
+frame (limitación del entorno, no de la librería). En dispositivo real la sensibilidad es la normal.
