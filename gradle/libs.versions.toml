@@ -1,0 +1,64 @@
+[versions]
+# Build
+kotlin = "2.2.20"
+agp = "8.12.0"
+composeMultiplatform = "1.9.0"
+
+# KotlinX
+coroutines = "1.10.2"
+
+# AndroidX
+androidx-lifecycle = "2.9.2"
+androidx-activityCompose = "1.10.1"
+camerax = "1.5.0"
+
+# ML Kit
+mlkitBarcode = "17.3.0"
+
+# SDK
+android-compileSdk = "36"
+android-minSdk = "24"
+android-targetSdk = "36"
+
+# Test
+turbine = "1.2.1"
+
+[libraries]
+# KotlinX
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+
+# AndroidX
+androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidx-activityCompose" }
+
+# CameraX
+camerax-core = { group = "androidx.camera", name = "camera-core", version.ref = "camerax" }
+camerax-camera2 = { group = "androidx.camera", name = "camera-camera2", version.ref = "camerax" }
+camerax-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "camerax" }
+camerax-compose = { group = "androidx.camera", name = "camera-compose", version.ref = "camerax" }
+
+# ML Kit (bundled, sin Google Play Services)
+mlkit-barcode-scanning = { group = "com.google.mlkit", name = "barcode-scanning", version.ref = "mlkitBarcode" }
+
+# Test
+turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
+
+# Plugins usados como dependencia en build-logic (convention plugins)
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+compose-gradlePlugin = { group = "org.jetbrains.compose", name = "compose-gradle-plugin", version.ref = "composeMultiplatform" }
+compose-compiler-gradlePlugin = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin" }
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
+composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+
+# Convention plugins propios (build-logic)
+scanner-kmp-library = { id = "scanner.kmp.library" }
+scanner-kmp-application = { id = "scanner.kmp.application" }
+scanner-compose = { id = "scanner.compose" }
