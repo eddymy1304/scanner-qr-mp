@@ -15,6 +15,7 @@ dependencies {
     compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.compose.gradlePlugin)
     compileOnly(libs.compose.compiler.gradlePlugin)
+    implementation(libs.vanniktech.mavenPublish.gradlePlugin)
 }
 
 gradlePlugin {
@@ -26,6 +27,10 @@ gradlePlugin {
         register("composeMultiplatform") {
             id = "scanner.compose"
             implementationClass = "ComposeMultiplatformConventionPlugin"
+        }
+        register("publishing") {
+            id = "scanner.publishing"
+            implementationClass = "PublishingConventionPlugin"
         }
     }
 }

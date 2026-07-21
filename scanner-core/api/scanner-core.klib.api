@@ -1,0 +1,381 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <scanner-qr-mp:scanner-core>
+final enum class pe.lacalera.scanner.core.config/CameraLens : kotlin/Enum<pe.lacalera.scanner.core.config/CameraLens> { // pe.lacalera.scanner.core.config/CameraLens|null[0]
+    enum entry Back // pe.lacalera.scanner.core.config/CameraLens.Back|null[0]
+    enum entry Front // pe.lacalera.scanner.core.config/CameraLens.Front|null[0]
+
+    final val entries // pe.lacalera.scanner.core.config/CameraLens.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<pe.lacalera.scanner.core.config/CameraLens> // pe.lacalera.scanner.core.config/CameraLens.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): pe.lacalera.scanner.core.config/CameraLens // pe.lacalera.scanner.core.config/CameraLens.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<pe.lacalera.scanner.core.config/CameraLens> // pe.lacalera.scanner.core.config/CameraLens.values|values#static(){}[0]
+}
+
+final enum class pe.lacalera.scanner.core.model/BarcodeFormat : kotlin/Enum<pe.lacalera.scanner.core.model/BarcodeFormat> { // pe.lacalera.scanner.core.model/BarcodeFormat|null[0]
+    enum entry Aztec // pe.lacalera.scanner.core.model/BarcodeFormat.Aztec|null[0]
+    enum entry Codabar // pe.lacalera.scanner.core.model/BarcodeFormat.Codabar|null[0]
+    enum entry Code128 // pe.lacalera.scanner.core.model/BarcodeFormat.Code128|null[0]
+    enum entry Code39 // pe.lacalera.scanner.core.model/BarcodeFormat.Code39|null[0]
+    enum entry Code93 // pe.lacalera.scanner.core.model/BarcodeFormat.Code93|null[0]
+    enum entry DataMatrix // pe.lacalera.scanner.core.model/BarcodeFormat.DataMatrix|null[0]
+    enum entry Ean13 // pe.lacalera.scanner.core.model/BarcodeFormat.Ean13|null[0]
+    enum entry Ean8 // pe.lacalera.scanner.core.model/BarcodeFormat.Ean8|null[0]
+    enum entry Itf // pe.lacalera.scanner.core.model/BarcodeFormat.Itf|null[0]
+    enum entry Pdf417 // pe.lacalera.scanner.core.model/BarcodeFormat.Pdf417|null[0]
+    enum entry QrCode // pe.lacalera.scanner.core.model/BarcodeFormat.QrCode|null[0]
+    enum entry UpcA // pe.lacalera.scanner.core.model/BarcodeFormat.UpcA|null[0]
+    enum entry UpcE // pe.lacalera.scanner.core.model/BarcodeFormat.UpcE|null[0]
+
+    final val entries // pe.lacalera.scanner.core.model/BarcodeFormat.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<pe.lacalera.scanner.core.model/BarcodeFormat> // pe.lacalera.scanner.core.model/BarcodeFormat.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): pe.lacalera.scanner.core.model/BarcodeFormat // pe.lacalera.scanner.core.model/BarcodeFormat.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<pe.lacalera.scanner.core.model/BarcodeFormat> // pe.lacalera.scanner.core.model/BarcodeFormat.values|values#static(){}[0]
+
+    final object Companion { // pe.lacalera.scanner.core.model/BarcodeFormat.Companion|null[0]
+        final val ALL // pe.lacalera.scanner.core.model/BarcodeFormat.Companion.ALL|{}ALL[0]
+            final fun <get-ALL>(): kotlin.collections/Set<pe.lacalera.scanner.core.model/BarcodeFormat> // pe.lacalera.scanner.core.model/BarcodeFormat.Companion.ALL.<get-ALL>|<get-ALL>(){}[0]
+        final val ONE_DIMENSIONAL // pe.lacalera.scanner.core.model/BarcodeFormat.Companion.ONE_DIMENSIONAL|{}ONE_DIMENSIONAL[0]
+            final fun <get-ONE_DIMENSIONAL>(): kotlin.collections/Set<pe.lacalera.scanner.core.model/BarcodeFormat> // pe.lacalera.scanner.core.model/BarcodeFormat.Companion.ONE_DIMENSIONAL.<get-ONE_DIMENSIONAL>|<get-ONE_DIMENSIONAL>(){}[0]
+        final val QR_ONLY // pe.lacalera.scanner.core.model/BarcodeFormat.Companion.QR_ONLY|{}QR_ONLY[0]
+            final fun <get-QR_ONLY>(): kotlin.collections/Set<pe.lacalera.scanner.core.model/BarcodeFormat> // pe.lacalera.scanner.core.model/BarcodeFormat.Companion.QR_ONLY.<get-QR_ONLY>|<get-QR_ONLY>(){}[0]
+        final val TWO_DIMENSIONAL // pe.lacalera.scanner.core.model/BarcodeFormat.Companion.TWO_DIMENSIONAL|{}TWO_DIMENSIONAL[0]
+            final fun <get-TWO_DIMENSIONAL>(): kotlin.collections/Set<pe.lacalera.scanner.core.model/BarcodeFormat> // pe.lacalera.scanner.core.model/BarcodeFormat.Companion.TWO_DIMENSIONAL.<get-TWO_DIMENSIONAL>|<get-TWO_DIMENSIONAL>(){}[0]
+    }
+}
+
+abstract interface pe.lacalera.scanner.core.engine/CameraEngine { // pe.lacalera.scanner.core.engine/CameraEngine|null[0]
+    abstract val cameraState // pe.lacalera.scanner.core.engine/CameraEngine.cameraState|{}cameraState[0]
+        abstract fun <get-cameraState>(): kotlinx.coroutines.flow/StateFlow<pe.lacalera.scanner.core.engine/CameraState> // pe.lacalera.scanner.core.engine/CameraEngine.cameraState.<get-cameraState>|<get-cameraState>(){}[0]
+    abstract val detections // pe.lacalera.scanner.core.engine/CameraEngine.detections|{}detections[0]
+        abstract fun <get-detections>(): kotlinx.coroutines.flow/Flow<pe.lacalera.scanner.core.model/ScanResult> // pe.lacalera.scanner.core.engine/CameraEngine.detections.<get-detections>|<get-detections>(){}[0]
+    abstract val errors // pe.lacalera.scanner.core.engine/CameraEngine.errors|{}errors[0]
+        abstract fun <get-errors>(): kotlinx.coroutines.flow/Flow<pe.lacalera.scanner.core.model/ScannerError> // pe.lacalera.scanner.core.engine/CameraEngine.errors.<get-errors>|<get-errors>(){}[0]
+
+    abstract fun focusAt(kotlin/Float, kotlin/Float) // pe.lacalera.scanner.core.engine/CameraEngine.focusAt|focusAt(kotlin.Float;kotlin.Float){}[0]
+    abstract fun pauseAnalysis() // pe.lacalera.scanner.core.engine/CameraEngine.pauseAnalysis|pauseAnalysis(){}[0]
+    abstract fun resumeAnalysis() // pe.lacalera.scanner.core.engine/CameraEngine.resumeAnalysis|resumeAnalysis(){}[0]
+    abstract fun setTorch(kotlin/Boolean) // pe.lacalera.scanner.core.engine/CameraEngine.setTorch|setTorch(kotlin.Boolean){}[0]
+    abstract fun setZoom(kotlin/Float) // pe.lacalera.scanner.core.engine/CameraEngine.setZoom|setZoom(kotlin.Float){}[0]
+    abstract fun start(pe.lacalera.scanner.core.engine/CameraRuntimeConfig) // pe.lacalera.scanner.core.engine/CameraEngine.start|start(pe.lacalera.scanner.core.engine.CameraRuntimeConfig){}[0]
+    abstract fun stop() // pe.lacalera.scanner.core.engine/CameraEngine.stop|stop(){}[0]
+    abstract fun switchLens(pe.lacalera.scanner.core.config/CameraLens) // pe.lacalera.scanner.core.engine/CameraEngine.switchLens|switchLens(pe.lacalera.scanner.core.config.CameraLens){}[0]
+}
+
+sealed interface pe.lacalera.scanner.core.config/ScanRegion { // pe.lacalera.scanner.core.config/ScanRegion|null[0]
+    final class Normalized : pe.lacalera.scanner.core.config/ScanRegion { // pe.lacalera.scanner.core.config/ScanRegion.Normalized|null[0]
+        constructor <init>(kotlin/Float, kotlin/Float, kotlin/Float, kotlin/Float) // pe.lacalera.scanner.core.config/ScanRegion.Normalized.<init>|<init>(kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float){}[0]
+
+        final val height // pe.lacalera.scanner.core.config/ScanRegion.Normalized.height|{}height[0]
+            final fun <get-height>(): kotlin/Float // pe.lacalera.scanner.core.config/ScanRegion.Normalized.height.<get-height>|<get-height>(){}[0]
+        final val left // pe.lacalera.scanner.core.config/ScanRegion.Normalized.left|{}left[0]
+            final fun <get-left>(): kotlin/Float // pe.lacalera.scanner.core.config/ScanRegion.Normalized.left.<get-left>|<get-left>(){}[0]
+        final val top // pe.lacalera.scanner.core.config/ScanRegion.Normalized.top|{}top[0]
+            final fun <get-top>(): kotlin/Float // pe.lacalera.scanner.core.config/ScanRegion.Normalized.top.<get-top>|<get-top>(){}[0]
+        final val width // pe.lacalera.scanner.core.config/ScanRegion.Normalized.width|{}width[0]
+            final fun <get-width>(): kotlin/Float // pe.lacalera.scanner.core.config/ScanRegion.Normalized.width.<get-width>|<get-width>(){}[0]
+
+        final fun component1(): kotlin/Float // pe.lacalera.scanner.core.config/ScanRegion.Normalized.component1|component1(){}[0]
+        final fun component2(): kotlin/Float // pe.lacalera.scanner.core.config/ScanRegion.Normalized.component2|component2(){}[0]
+        final fun component3(): kotlin/Float // pe.lacalera.scanner.core.config/ScanRegion.Normalized.component3|component3(){}[0]
+        final fun component4(): kotlin/Float // pe.lacalera.scanner.core.config/ScanRegion.Normalized.component4|component4(){}[0]
+        final fun copy(kotlin/Float = ..., kotlin/Float = ..., kotlin/Float = ..., kotlin/Float = ...): pe.lacalera.scanner.core.config/ScanRegion.Normalized // pe.lacalera.scanner.core.config/ScanRegion.Normalized.copy|copy(kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // pe.lacalera.scanner.core.config/ScanRegion.Normalized.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // pe.lacalera.scanner.core.config/ScanRegion.Normalized.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // pe.lacalera.scanner.core.config/ScanRegion.Normalized.toString|toString(){}[0]
+    }
+
+    final object FullFrame : pe.lacalera.scanner.core.config/ScanRegion { // pe.lacalera.scanner.core.config/ScanRegion.FullFrame|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // pe.lacalera.scanner.core.config/ScanRegion.FullFrame.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // pe.lacalera.scanner.core.config/ScanRegion.FullFrame.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // pe.lacalera.scanner.core.config/ScanRegion.FullFrame.toString|toString(){}[0]
+    }
+}
+
+sealed interface pe.lacalera.scanner.core.model/ScanMode { // pe.lacalera.scanner.core.model/ScanMode|null[0]
+    final class Continuous : pe.lacalera.scanner.core.model/ScanMode { // pe.lacalera.scanner.core.model/ScanMode.Continuous|null[0]
+        constructor <init>(kotlin.time/Duration = ...) // pe.lacalera.scanner.core.model/ScanMode.Continuous.<init>|<init>(kotlin.time.Duration){}[0]
+
+        final val emitInterval // pe.lacalera.scanner.core.model/ScanMode.Continuous.emitInterval|{}emitInterval[0]
+            final fun <get-emitInterval>(): kotlin.time/Duration // pe.lacalera.scanner.core.model/ScanMode.Continuous.emitInterval.<get-emitInterval>|<get-emitInterval>(){}[0]
+
+        final fun component1(): kotlin.time/Duration // pe.lacalera.scanner.core.model/ScanMode.Continuous.component1|component1(){}[0]
+        final fun copy(kotlin.time/Duration = ...): pe.lacalera.scanner.core.model/ScanMode.Continuous // pe.lacalera.scanner.core.model/ScanMode.Continuous.copy|copy(kotlin.time.Duration){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // pe.lacalera.scanner.core.model/ScanMode.Continuous.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // pe.lacalera.scanner.core.model/ScanMode.Continuous.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // pe.lacalera.scanner.core.model/ScanMode.Continuous.toString|toString(){}[0]
+    }
+
+    final class ContinuousDistinct : pe.lacalera.scanner.core.model/ScanMode { // pe.lacalera.scanner.core.model/ScanMode.ContinuousDistinct|null[0]
+        constructor <init>(kotlin.time/Duration = ...) // pe.lacalera.scanner.core.model/ScanMode.ContinuousDistinct.<init>|<init>(kotlin.time.Duration){}[0]
+
+        final val cooldownPerValue // pe.lacalera.scanner.core.model/ScanMode.ContinuousDistinct.cooldownPerValue|{}cooldownPerValue[0]
+            final fun <get-cooldownPerValue>(): kotlin.time/Duration // pe.lacalera.scanner.core.model/ScanMode.ContinuousDistinct.cooldownPerValue.<get-cooldownPerValue>|<get-cooldownPerValue>(){}[0]
+
+        final fun component1(): kotlin.time/Duration // pe.lacalera.scanner.core.model/ScanMode.ContinuousDistinct.component1|component1(){}[0]
+        final fun copy(kotlin.time/Duration = ...): pe.lacalera.scanner.core.model/ScanMode.ContinuousDistinct // pe.lacalera.scanner.core.model/ScanMode.ContinuousDistinct.copy|copy(kotlin.time.Duration){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // pe.lacalera.scanner.core.model/ScanMode.ContinuousDistinct.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // pe.lacalera.scanner.core.model/ScanMode.ContinuousDistinct.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // pe.lacalera.scanner.core.model/ScanMode.ContinuousDistinct.toString|toString(){}[0]
+    }
+
+    final object SingleShot : pe.lacalera.scanner.core.model/ScanMode { // pe.lacalera.scanner.core.model/ScanMode.SingleShot|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // pe.lacalera.scanner.core.model/ScanMode.SingleShot.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // pe.lacalera.scanner.core.model/ScanMode.SingleShot.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // pe.lacalera.scanner.core.model/ScanMode.SingleShot.toString|toString(){}[0]
+    }
+}
+
+sealed interface pe.lacalera.scanner.core.model/ScannerError { // pe.lacalera.scanner.core.model/ScannerError|null[0]
+    final class AnalysisFailure : pe.lacalera.scanner.core.model/ScannerError { // pe.lacalera.scanner.core.model/ScannerError.AnalysisFailure|null[0]
+        constructor <init>(kotlin/String? = ...) // pe.lacalera.scanner.core.model/ScannerError.AnalysisFailure.<init>|<init>(kotlin.String?){}[0]
+
+        final val message // pe.lacalera.scanner.core.model/ScannerError.AnalysisFailure.message|{}message[0]
+            final fun <get-message>(): kotlin/String? // pe.lacalera.scanner.core.model/ScannerError.AnalysisFailure.message.<get-message>|<get-message>(){}[0]
+
+        final fun component1(): kotlin/String? // pe.lacalera.scanner.core.model/ScannerError.AnalysisFailure.component1|component1(){}[0]
+        final fun copy(kotlin/String? = ...): pe.lacalera.scanner.core.model/ScannerError.AnalysisFailure // pe.lacalera.scanner.core.model/ScannerError.AnalysisFailure.copy|copy(kotlin.String?){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // pe.lacalera.scanner.core.model/ScannerError.AnalysisFailure.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // pe.lacalera.scanner.core.model/ScannerError.AnalysisFailure.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // pe.lacalera.scanner.core.model/ScannerError.AnalysisFailure.toString|toString(){}[0]
+    }
+
+    final class CameraUnavailable : pe.lacalera.scanner.core.model/ScannerError { // pe.lacalera.scanner.core.model/ScannerError.CameraUnavailable|null[0]
+        constructor <init>(kotlin/String? = ...) // pe.lacalera.scanner.core.model/ScannerError.CameraUnavailable.<init>|<init>(kotlin.String?){}[0]
+
+        final val message // pe.lacalera.scanner.core.model/ScannerError.CameraUnavailable.message|{}message[0]
+            final fun <get-message>(): kotlin/String? // pe.lacalera.scanner.core.model/ScannerError.CameraUnavailable.message.<get-message>|<get-message>(){}[0]
+
+        final fun component1(): kotlin/String? // pe.lacalera.scanner.core.model/ScannerError.CameraUnavailable.component1|component1(){}[0]
+        final fun copy(kotlin/String? = ...): pe.lacalera.scanner.core.model/ScannerError.CameraUnavailable // pe.lacalera.scanner.core.model/ScannerError.CameraUnavailable.copy|copy(kotlin.String?){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // pe.lacalera.scanner.core.model/ScannerError.CameraUnavailable.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // pe.lacalera.scanner.core.model/ScannerError.CameraUnavailable.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // pe.lacalera.scanner.core.model/ScannerError.CameraUnavailable.toString|toString(){}[0]
+    }
+
+    final class PermissionDenied : pe.lacalera.scanner.core.model/ScannerError { // pe.lacalera.scanner.core.model/ScannerError.PermissionDenied|null[0]
+        constructor <init>(kotlin/Boolean) // pe.lacalera.scanner.core.model/ScannerError.PermissionDenied.<init>|<init>(kotlin.Boolean){}[0]
+
+        final val permanently // pe.lacalera.scanner.core.model/ScannerError.PermissionDenied.permanently|{}permanently[0]
+            final fun <get-permanently>(): kotlin/Boolean // pe.lacalera.scanner.core.model/ScannerError.PermissionDenied.permanently.<get-permanently>|<get-permanently>(){}[0]
+
+        final fun component1(): kotlin/Boolean // pe.lacalera.scanner.core.model/ScannerError.PermissionDenied.component1|component1(){}[0]
+        final fun copy(kotlin/Boolean = ...): pe.lacalera.scanner.core.model/ScannerError.PermissionDenied // pe.lacalera.scanner.core.model/ScannerError.PermissionDenied.copy|copy(kotlin.Boolean){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // pe.lacalera.scanner.core.model/ScannerError.PermissionDenied.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // pe.lacalera.scanner.core.model/ScannerError.PermissionDenied.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // pe.lacalera.scanner.core.model/ScannerError.PermissionDenied.toString|toString(){}[0]
+    }
+
+    final object MissingUsageDescription : pe.lacalera.scanner.core.model/ScannerError { // pe.lacalera.scanner.core.model/ScannerError.MissingUsageDescription|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // pe.lacalera.scanner.core.model/ScannerError.MissingUsageDescription.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // pe.lacalera.scanner.core.model/ScannerError.MissingUsageDescription.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // pe.lacalera.scanner.core.model/ScannerError.MissingUsageDescription.toString|toString(){}[0]
+    }
+}
+
+final class pe.lacalera.scanner.core.config/CameraConfig { // pe.lacalera.scanner.core.config/CameraConfig|null[0]
+    constructor <init>(pe.lacalera.scanner.core.config/CameraLens = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Float = ..., pe.lacalera.scanner.core.config/ScanRegion = ...) // pe.lacalera.scanner.core.config/CameraConfig.<init>|<init>(pe.lacalera.scanner.core.config.CameraLens;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Float;pe.lacalera.scanner.core.config.ScanRegion){}[0]
+
+    final val initialZoomRatio // pe.lacalera.scanner.core.config/CameraConfig.initialZoomRatio|{}initialZoomRatio[0]
+        final fun <get-initialZoomRatio>(): kotlin/Float // pe.lacalera.scanner.core.config/CameraConfig.initialZoomRatio.<get-initialZoomRatio>|<get-initialZoomRatio>(){}[0]
+    final val lens // pe.lacalera.scanner.core.config/CameraConfig.lens|{}lens[0]
+        final fun <get-lens>(): pe.lacalera.scanner.core.config/CameraLens // pe.lacalera.scanner.core.config/CameraConfig.lens.<get-lens>|<get-lens>(){}[0]
+    final val pinchToZoom // pe.lacalera.scanner.core.config/CameraConfig.pinchToZoom|{}pinchToZoom[0]
+        final fun <get-pinchToZoom>(): kotlin/Boolean // pe.lacalera.scanner.core.config/CameraConfig.pinchToZoom.<get-pinchToZoom>|<get-pinchToZoom>(){}[0]
+    final val scanRegion // pe.lacalera.scanner.core.config/CameraConfig.scanRegion|{}scanRegion[0]
+        final fun <get-scanRegion>(): pe.lacalera.scanner.core.config/ScanRegion // pe.lacalera.scanner.core.config/CameraConfig.scanRegion.<get-scanRegion>|<get-scanRegion>(){}[0]
+    final val tapToFocus // pe.lacalera.scanner.core.config/CameraConfig.tapToFocus|{}tapToFocus[0]
+        final fun <get-tapToFocus>(): kotlin/Boolean // pe.lacalera.scanner.core.config/CameraConfig.tapToFocus.<get-tapToFocus>|<get-tapToFocus>(){}[0]
+    final val torchOnStart // pe.lacalera.scanner.core.config/CameraConfig.torchOnStart|{}torchOnStart[0]
+        final fun <get-torchOnStart>(): kotlin/Boolean // pe.lacalera.scanner.core.config/CameraConfig.torchOnStart.<get-torchOnStart>|<get-torchOnStart>(){}[0]
+
+    final fun component1(): pe.lacalera.scanner.core.config/CameraLens // pe.lacalera.scanner.core.config/CameraConfig.component1|component1(){}[0]
+    final fun component2(): kotlin/Boolean // pe.lacalera.scanner.core.config/CameraConfig.component2|component2(){}[0]
+    final fun component3(): kotlin/Boolean // pe.lacalera.scanner.core.config/CameraConfig.component3|component3(){}[0]
+    final fun component4(): kotlin/Boolean // pe.lacalera.scanner.core.config/CameraConfig.component4|component4(){}[0]
+    final fun component5(): kotlin/Float // pe.lacalera.scanner.core.config/CameraConfig.component5|component5(){}[0]
+    final fun component6(): pe.lacalera.scanner.core.config/ScanRegion // pe.lacalera.scanner.core.config/CameraConfig.component6|component6(){}[0]
+    final fun copy(pe.lacalera.scanner.core.config/CameraLens = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Float = ..., pe.lacalera.scanner.core.config/ScanRegion = ...): pe.lacalera.scanner.core.config/CameraConfig // pe.lacalera.scanner.core.config/CameraConfig.copy|copy(pe.lacalera.scanner.core.config.CameraLens;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Float;pe.lacalera.scanner.core.config.ScanRegion){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // pe.lacalera.scanner.core.config/CameraConfig.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // pe.lacalera.scanner.core.config/CameraConfig.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // pe.lacalera.scanner.core.config/CameraConfig.toString|toString(){}[0]
+}
+
+final class pe.lacalera.scanner.core.config/FeedbackConfig { // pe.lacalera.scanner.core.config/FeedbackConfig|null[0]
+    constructor <init>(kotlin/Boolean = ..., kotlin/Boolean = ...) // pe.lacalera.scanner.core.config/FeedbackConfig.<init>|<init>(kotlin.Boolean;kotlin.Boolean){}[0]
+
+    final val haptic // pe.lacalera.scanner.core.config/FeedbackConfig.haptic|{}haptic[0]
+        final fun <get-haptic>(): kotlin/Boolean // pe.lacalera.scanner.core.config/FeedbackConfig.haptic.<get-haptic>|<get-haptic>(){}[0]
+    final val sound // pe.lacalera.scanner.core.config/FeedbackConfig.sound|{}sound[0]
+        final fun <get-sound>(): kotlin/Boolean // pe.lacalera.scanner.core.config/FeedbackConfig.sound.<get-sound>|<get-sound>(){}[0]
+
+    final fun component1(): kotlin/Boolean // pe.lacalera.scanner.core.config/FeedbackConfig.component1|component1(){}[0]
+    final fun component2(): kotlin/Boolean // pe.lacalera.scanner.core.config/FeedbackConfig.component2|component2(){}[0]
+    final fun copy(kotlin/Boolean = ..., kotlin/Boolean = ...): pe.lacalera.scanner.core.config/FeedbackConfig // pe.lacalera.scanner.core.config/FeedbackConfig.copy|copy(kotlin.Boolean;kotlin.Boolean){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // pe.lacalera.scanner.core.config/FeedbackConfig.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // pe.lacalera.scanner.core.config/FeedbackConfig.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // pe.lacalera.scanner.core.config/FeedbackConfig.toString|toString(){}[0]
+}
+
+final class pe.lacalera.scanner.core.config/ScannerConfig { // pe.lacalera.scanner.core.config/ScannerConfig|null[0]
+    constructor <init>(kotlin.collections/Set<pe.lacalera.scanner.core.model/BarcodeFormat> = ..., pe.lacalera.scanner.core.model/ScanMode = ..., pe.lacalera.scanner.core.config/CameraConfig = ..., pe.lacalera.scanner.core.config/FeedbackConfig = ..., pe.lacalera.scanner.core.config/ScannerStrings = ...) // pe.lacalera.scanner.core.config/ScannerConfig.<init>|<init>(kotlin.collections.Set<pe.lacalera.scanner.core.model.BarcodeFormat>;pe.lacalera.scanner.core.model.ScanMode;pe.lacalera.scanner.core.config.CameraConfig;pe.lacalera.scanner.core.config.FeedbackConfig;pe.lacalera.scanner.core.config.ScannerStrings){}[0]
+
+    final val camera // pe.lacalera.scanner.core.config/ScannerConfig.camera|{}camera[0]
+        final fun <get-camera>(): pe.lacalera.scanner.core.config/CameraConfig // pe.lacalera.scanner.core.config/ScannerConfig.camera.<get-camera>|<get-camera>(){}[0]
+    final val feedback // pe.lacalera.scanner.core.config/ScannerConfig.feedback|{}feedback[0]
+        final fun <get-feedback>(): pe.lacalera.scanner.core.config/FeedbackConfig // pe.lacalera.scanner.core.config/ScannerConfig.feedback.<get-feedback>|<get-feedback>(){}[0]
+    final val formats // pe.lacalera.scanner.core.config/ScannerConfig.formats|{}formats[0]
+        final fun <get-formats>(): kotlin.collections/Set<pe.lacalera.scanner.core.model/BarcodeFormat> // pe.lacalera.scanner.core.config/ScannerConfig.formats.<get-formats>|<get-formats>(){}[0]
+    final val scanMode // pe.lacalera.scanner.core.config/ScannerConfig.scanMode|{}scanMode[0]
+        final fun <get-scanMode>(): pe.lacalera.scanner.core.model/ScanMode // pe.lacalera.scanner.core.config/ScannerConfig.scanMode.<get-scanMode>|<get-scanMode>(){}[0]
+    final val strings // pe.lacalera.scanner.core.config/ScannerConfig.strings|{}strings[0]
+        final fun <get-strings>(): pe.lacalera.scanner.core.config/ScannerStrings // pe.lacalera.scanner.core.config/ScannerConfig.strings.<get-strings>|<get-strings>(){}[0]
+
+    final fun component1(): kotlin.collections/Set<pe.lacalera.scanner.core.model/BarcodeFormat> // pe.lacalera.scanner.core.config/ScannerConfig.component1|component1(){}[0]
+    final fun component2(): pe.lacalera.scanner.core.model/ScanMode // pe.lacalera.scanner.core.config/ScannerConfig.component2|component2(){}[0]
+    final fun component3(): pe.lacalera.scanner.core.config/CameraConfig // pe.lacalera.scanner.core.config/ScannerConfig.component3|component3(){}[0]
+    final fun component4(): pe.lacalera.scanner.core.config/FeedbackConfig // pe.lacalera.scanner.core.config/ScannerConfig.component4|component4(){}[0]
+    final fun component5(): pe.lacalera.scanner.core.config/ScannerStrings // pe.lacalera.scanner.core.config/ScannerConfig.component5|component5(){}[0]
+    final fun copy(kotlin.collections/Set<pe.lacalera.scanner.core.model/BarcodeFormat> = ..., pe.lacalera.scanner.core.model/ScanMode = ..., pe.lacalera.scanner.core.config/CameraConfig = ..., pe.lacalera.scanner.core.config/FeedbackConfig = ..., pe.lacalera.scanner.core.config/ScannerStrings = ...): pe.lacalera.scanner.core.config/ScannerConfig // pe.lacalera.scanner.core.config/ScannerConfig.copy|copy(kotlin.collections.Set<pe.lacalera.scanner.core.model.BarcodeFormat>;pe.lacalera.scanner.core.model.ScanMode;pe.lacalera.scanner.core.config.CameraConfig;pe.lacalera.scanner.core.config.FeedbackConfig;pe.lacalera.scanner.core.config.ScannerStrings){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // pe.lacalera.scanner.core.config/ScannerConfig.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // pe.lacalera.scanner.core.config/ScannerConfig.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // pe.lacalera.scanner.core.config/ScannerConfig.toString|toString(){}[0]
+}
+
+final class pe.lacalera.scanner.core.config/ScannerStrings { // pe.lacalera.scanner.core.config/ScannerStrings|null[0]
+    constructor <init>(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ...) // pe.lacalera.scanner.core.config/ScannerStrings.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String){}[0]
+
+    final val cameraUnavailableMessage // pe.lacalera.scanner.core.config/ScannerStrings.cameraUnavailableMessage|{}cameraUnavailableMessage[0]
+        final fun <get-cameraUnavailableMessage>(): kotlin/String // pe.lacalera.scanner.core.config/ScannerStrings.cameraUnavailableMessage.<get-cameraUnavailableMessage>|<get-cameraUnavailableMessage>(){}[0]
+    final val openSettingsButton // pe.lacalera.scanner.core.config/ScannerStrings.openSettingsButton|{}openSettingsButton[0]
+        final fun <get-openSettingsButton>(): kotlin/String // pe.lacalera.scanner.core.config/ScannerStrings.openSettingsButton.<get-openSettingsButton>|<get-openSettingsButton>(){}[0]
+    final val permissionDeniedMessage // pe.lacalera.scanner.core.config/ScannerStrings.permissionDeniedMessage|{}permissionDeniedMessage[0]
+        final fun <get-permissionDeniedMessage>(): kotlin/String // pe.lacalera.scanner.core.config/ScannerStrings.permissionDeniedMessage.<get-permissionDeniedMessage>|<get-permissionDeniedMessage>(){}[0]
+    final val permissionRationale // pe.lacalera.scanner.core.config/ScannerStrings.permissionRationale|{}permissionRationale[0]
+        final fun <get-permissionRationale>(): kotlin/String // pe.lacalera.scanner.core.config/ScannerStrings.permissionRationale.<get-permissionRationale>|<get-permissionRationale>(){}[0]
+    final val permissionRequestButton // pe.lacalera.scanner.core.config/ScannerStrings.permissionRequestButton|{}permissionRequestButton[0]
+        final fun <get-permissionRequestButton>(): kotlin/String // pe.lacalera.scanner.core.config/ScannerStrings.permissionRequestButton.<get-permissionRequestButton>|<get-permissionRequestButton>(){}[0]
+
+    final fun component1(): kotlin/String // pe.lacalera.scanner.core.config/ScannerStrings.component1|component1(){}[0]
+    final fun component2(): kotlin/String // pe.lacalera.scanner.core.config/ScannerStrings.component2|component2(){}[0]
+    final fun component3(): kotlin/String // pe.lacalera.scanner.core.config/ScannerStrings.component3|component3(){}[0]
+    final fun component4(): kotlin/String // pe.lacalera.scanner.core.config/ScannerStrings.component4|component4(){}[0]
+    final fun component5(): kotlin/String // pe.lacalera.scanner.core.config/ScannerStrings.component5|component5(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ...): pe.lacalera.scanner.core.config/ScannerStrings // pe.lacalera.scanner.core.config/ScannerStrings.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // pe.lacalera.scanner.core.config/ScannerStrings.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // pe.lacalera.scanner.core.config/ScannerStrings.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // pe.lacalera.scanner.core.config/ScannerStrings.toString|toString(){}[0]
+}
+
+final class pe.lacalera.scanner.core.detection/DetectionFilter { // pe.lacalera.scanner.core.detection/DetectionFilter|null[0]
+    constructor <init>(pe.lacalera.scanner.core.model/ScanMode, kotlin.time/TimeSource.WithComparableMarks = ...) // pe.lacalera.scanner.core.detection/DetectionFilter.<init>|<init>(pe.lacalera.scanner.core.model.ScanMode;kotlin.time.TimeSource.WithComparableMarks){}[0]
+
+    final fun apply(kotlinx.coroutines.flow/Flow<pe.lacalera.scanner.core.model/ScanResult>): kotlinx.coroutines.flow/Flow<pe.lacalera.scanner.core.model/ScanResult> // pe.lacalera.scanner.core.detection/DetectionFilter.apply|apply(kotlinx.coroutines.flow.Flow<pe.lacalera.scanner.core.model.ScanResult>){}[0]
+}
+
+final class pe.lacalera.scanner.core.engine/CameraRuntimeConfig { // pe.lacalera.scanner.core.engine/CameraRuntimeConfig|null[0]
+    constructor <init>(kotlin.collections/Set<pe.lacalera.scanner.core.model/BarcodeFormat>, pe.lacalera.scanner.core.config/CameraLens = ..., kotlin/Boolean = ..., kotlin/Float = ..., pe.lacalera.scanner.core.config/ScanRegion = ...) // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.<init>|<init>(kotlin.collections.Set<pe.lacalera.scanner.core.model.BarcodeFormat>;pe.lacalera.scanner.core.config.CameraLens;kotlin.Boolean;kotlin.Float;pe.lacalera.scanner.core.config.ScanRegion){}[0]
+
+    final val formats // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.formats|{}formats[0]
+        final fun <get-formats>(): kotlin.collections/Set<pe.lacalera.scanner.core.model/BarcodeFormat> // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.formats.<get-formats>|<get-formats>(){}[0]
+    final val initialZoomRatio // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.initialZoomRatio|{}initialZoomRatio[0]
+        final fun <get-initialZoomRatio>(): kotlin/Float // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.initialZoomRatio.<get-initialZoomRatio>|<get-initialZoomRatio>(){}[0]
+    final val lens // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.lens|{}lens[0]
+        final fun <get-lens>(): pe.lacalera.scanner.core.config/CameraLens // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.lens.<get-lens>|<get-lens>(){}[0]
+    final val scanRegion // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.scanRegion|{}scanRegion[0]
+        final fun <get-scanRegion>(): pe.lacalera.scanner.core.config/ScanRegion // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.scanRegion.<get-scanRegion>|<get-scanRegion>(){}[0]
+    final val torchOnStart // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.torchOnStart|{}torchOnStart[0]
+        final fun <get-torchOnStart>(): kotlin/Boolean // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.torchOnStart.<get-torchOnStart>|<get-torchOnStart>(){}[0]
+
+    final fun component1(): kotlin.collections/Set<pe.lacalera.scanner.core.model/BarcodeFormat> // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.component1|component1(){}[0]
+    final fun component2(): pe.lacalera.scanner.core.config/CameraLens // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.component2|component2(){}[0]
+    final fun component3(): kotlin/Boolean // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.component3|component3(){}[0]
+    final fun component4(): kotlin/Float // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.component4|component4(){}[0]
+    final fun component5(): pe.lacalera.scanner.core.config/ScanRegion // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.component5|component5(){}[0]
+    final fun copy(kotlin.collections/Set<pe.lacalera.scanner.core.model/BarcodeFormat> = ..., pe.lacalera.scanner.core.config/CameraLens = ..., kotlin/Boolean = ..., kotlin/Float = ..., pe.lacalera.scanner.core.config/ScanRegion = ...): pe.lacalera.scanner.core.engine/CameraRuntimeConfig // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.copy|copy(kotlin.collections.Set<pe.lacalera.scanner.core.model.BarcodeFormat>;pe.lacalera.scanner.core.config.CameraLens;kotlin.Boolean;kotlin.Float;pe.lacalera.scanner.core.config.ScanRegion){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // pe.lacalera.scanner.core.engine/CameraRuntimeConfig.toString|toString(){}[0]
+}
+
+final class pe.lacalera.scanner.core.engine/CameraState { // pe.lacalera.scanner.core.engine/CameraState|null[0]
+    constructor <init>(kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Float = ..., kotlin/Float = ..., kotlin/Float = ..., pe.lacalera.scanner.core.config/CameraLens = ..., kotlin/Boolean = ...) // pe.lacalera.scanner.core.engine/CameraState.<init>|<init>(kotlin.Boolean;kotlin.Boolean;kotlin.Float;kotlin.Float;kotlin.Float;pe.lacalera.scanner.core.config.CameraLens;kotlin.Boolean){}[0]
+
+    final val isAnalysisPaused // pe.lacalera.scanner.core.engine/CameraState.isAnalysisPaused|{}isAnalysisPaused[0]
+        final fun <get-isAnalysisPaused>(): kotlin/Boolean // pe.lacalera.scanner.core.engine/CameraState.isAnalysisPaused.<get-isAnalysisPaused>|<get-isAnalysisPaused>(){}[0]
+    final val lens // pe.lacalera.scanner.core.engine/CameraState.lens|{}lens[0]
+        final fun <get-lens>(): pe.lacalera.scanner.core.config/CameraLens // pe.lacalera.scanner.core.engine/CameraState.lens.<get-lens>|<get-lens>(){}[0]
+    final val maxZoomRatio // pe.lacalera.scanner.core.engine/CameraState.maxZoomRatio|{}maxZoomRatio[0]
+        final fun <get-maxZoomRatio>(): kotlin/Float // pe.lacalera.scanner.core.engine/CameraState.maxZoomRatio.<get-maxZoomRatio>|<get-maxZoomRatio>(){}[0]
+    final val minZoomRatio // pe.lacalera.scanner.core.engine/CameraState.minZoomRatio|{}minZoomRatio[0]
+        final fun <get-minZoomRatio>(): kotlin/Float // pe.lacalera.scanner.core.engine/CameraState.minZoomRatio.<get-minZoomRatio>|<get-minZoomRatio>(){}[0]
+    final val torchAvailable // pe.lacalera.scanner.core.engine/CameraState.torchAvailable|{}torchAvailable[0]
+        final fun <get-torchAvailable>(): kotlin/Boolean // pe.lacalera.scanner.core.engine/CameraState.torchAvailable.<get-torchAvailable>|<get-torchAvailable>(){}[0]
+    final val torchOn // pe.lacalera.scanner.core.engine/CameraState.torchOn|{}torchOn[0]
+        final fun <get-torchOn>(): kotlin/Boolean // pe.lacalera.scanner.core.engine/CameraState.torchOn.<get-torchOn>|<get-torchOn>(){}[0]
+    final val zoomRatio // pe.lacalera.scanner.core.engine/CameraState.zoomRatio|{}zoomRatio[0]
+        final fun <get-zoomRatio>(): kotlin/Float // pe.lacalera.scanner.core.engine/CameraState.zoomRatio.<get-zoomRatio>|<get-zoomRatio>(){}[0]
+
+    final fun component1(): kotlin/Boolean // pe.lacalera.scanner.core.engine/CameraState.component1|component1(){}[0]
+    final fun component2(): kotlin/Boolean // pe.lacalera.scanner.core.engine/CameraState.component2|component2(){}[0]
+    final fun component3(): kotlin/Float // pe.lacalera.scanner.core.engine/CameraState.component3|component3(){}[0]
+    final fun component4(): kotlin/Float // pe.lacalera.scanner.core.engine/CameraState.component4|component4(){}[0]
+    final fun component5(): kotlin/Float // pe.lacalera.scanner.core.engine/CameraState.component5|component5(){}[0]
+    final fun component6(): pe.lacalera.scanner.core.config/CameraLens // pe.lacalera.scanner.core.engine/CameraState.component6|component6(){}[0]
+    final fun component7(): kotlin/Boolean // pe.lacalera.scanner.core.engine/CameraState.component7|component7(){}[0]
+    final fun copy(kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Float = ..., kotlin/Float = ..., kotlin/Float = ..., pe.lacalera.scanner.core.config/CameraLens = ..., kotlin/Boolean = ...): pe.lacalera.scanner.core.engine/CameraState // pe.lacalera.scanner.core.engine/CameraState.copy|copy(kotlin.Boolean;kotlin.Boolean;kotlin.Float;kotlin.Float;kotlin.Float;pe.lacalera.scanner.core.config.CameraLens;kotlin.Boolean){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // pe.lacalera.scanner.core.engine/CameraState.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // pe.lacalera.scanner.core.engine/CameraState.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // pe.lacalera.scanner.core.engine/CameraState.toString|toString(){}[0]
+}
+
+final class pe.lacalera.scanner.core.model/NormalizedPoint { // pe.lacalera.scanner.core.model/NormalizedPoint|null[0]
+    constructor <init>(kotlin/Float, kotlin/Float) // pe.lacalera.scanner.core.model/NormalizedPoint.<init>|<init>(kotlin.Float;kotlin.Float){}[0]
+
+    final val x // pe.lacalera.scanner.core.model/NormalizedPoint.x|{}x[0]
+        final fun <get-x>(): kotlin/Float // pe.lacalera.scanner.core.model/NormalizedPoint.x.<get-x>|<get-x>(){}[0]
+    final val y // pe.lacalera.scanner.core.model/NormalizedPoint.y|{}y[0]
+        final fun <get-y>(): kotlin/Float // pe.lacalera.scanner.core.model/NormalizedPoint.y.<get-y>|<get-y>(){}[0]
+
+    final fun component1(): kotlin/Float // pe.lacalera.scanner.core.model/NormalizedPoint.component1|component1(){}[0]
+    final fun component2(): kotlin/Float // pe.lacalera.scanner.core.model/NormalizedPoint.component2|component2(){}[0]
+    final fun copy(kotlin/Float = ..., kotlin/Float = ...): pe.lacalera.scanner.core.model/NormalizedPoint // pe.lacalera.scanner.core.model/NormalizedPoint.copy|copy(kotlin.Float;kotlin.Float){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // pe.lacalera.scanner.core.model/NormalizedPoint.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // pe.lacalera.scanner.core.model/NormalizedPoint.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // pe.lacalera.scanner.core.model/NormalizedPoint.toString|toString(){}[0]
+}
+
+final class pe.lacalera.scanner.core.model/ScanResult { // pe.lacalera.scanner.core.model/ScanResult|null[0]
+    constructor <init>(kotlin/String, pe.lacalera.scanner.core.model/BarcodeFormat, kotlin.collections/List<pe.lacalera.scanner.core.model/NormalizedPoint> = ..., kotlin/Long = ...) // pe.lacalera.scanner.core.model/ScanResult.<init>|<init>(kotlin.String;pe.lacalera.scanner.core.model.BarcodeFormat;kotlin.collections.List<pe.lacalera.scanner.core.model.NormalizedPoint>;kotlin.Long){}[0]
+
+    final val cornerPoints // pe.lacalera.scanner.core.model/ScanResult.cornerPoints|{}cornerPoints[0]
+        final fun <get-cornerPoints>(): kotlin.collections/List<pe.lacalera.scanner.core.model/NormalizedPoint> // pe.lacalera.scanner.core.model/ScanResult.cornerPoints.<get-cornerPoints>|<get-cornerPoints>(){}[0]
+    final val dedupeKey // pe.lacalera.scanner.core.model/ScanResult.dedupeKey|{}dedupeKey[0]
+        final fun <get-dedupeKey>(): kotlin/String // pe.lacalera.scanner.core.model/ScanResult.dedupeKey.<get-dedupeKey>|<get-dedupeKey>(){}[0]
+    final val format // pe.lacalera.scanner.core.model/ScanResult.format|{}format[0]
+        final fun <get-format>(): pe.lacalera.scanner.core.model/BarcodeFormat // pe.lacalera.scanner.core.model/ScanResult.format.<get-format>|<get-format>(){}[0]
+    final val rawValue // pe.lacalera.scanner.core.model/ScanResult.rawValue|{}rawValue[0]
+        final fun <get-rawValue>(): kotlin/String // pe.lacalera.scanner.core.model/ScanResult.rawValue.<get-rawValue>|<get-rawValue>(){}[0]
+    final val timestampMillis // pe.lacalera.scanner.core.model/ScanResult.timestampMillis|{}timestampMillis[0]
+        final fun <get-timestampMillis>(): kotlin/Long // pe.lacalera.scanner.core.model/ScanResult.timestampMillis.<get-timestampMillis>|<get-timestampMillis>(){}[0]
+
+    final fun component1(): kotlin/String // pe.lacalera.scanner.core.model/ScanResult.component1|component1(){}[0]
+    final fun component2(): pe.lacalera.scanner.core.model/BarcodeFormat // pe.lacalera.scanner.core.model/ScanResult.component2|component2(){}[0]
+    final fun component3(): kotlin.collections/List<pe.lacalera.scanner.core.model/NormalizedPoint> // pe.lacalera.scanner.core.model/ScanResult.component3|component3(){}[0]
+    final fun component4(): kotlin/Long // pe.lacalera.scanner.core.model/ScanResult.component4|component4(){}[0]
+    final fun copy(kotlin/String = ..., pe.lacalera.scanner.core.model/BarcodeFormat = ..., kotlin.collections/List<pe.lacalera.scanner.core.model/NormalizedPoint> = ..., kotlin/Long = ...): pe.lacalera.scanner.core.model/ScanResult // pe.lacalera.scanner.core.model/ScanResult.copy|copy(kotlin.String;pe.lacalera.scanner.core.model.BarcodeFormat;kotlin.collections.List<pe.lacalera.scanner.core.model.NormalizedPoint>;kotlin.Long){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // pe.lacalera.scanner.core.model/ScanResult.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // pe.lacalera.scanner.core.model/ScanResult.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // pe.lacalera.scanner.core.model/ScanResult.toString|toString(){}[0]
+}
+
+final object pe.lacalera.scanner.core/ScannerLibrary { // pe.lacalera.scanner.core/ScannerLibrary|null[0]
+    final const val VERSION // pe.lacalera.scanner.core/ScannerLibrary.VERSION|{}VERSION[0]
+        final fun <get-VERSION>(): kotlin/String // pe.lacalera.scanner.core/ScannerLibrary.VERSION.<get-VERSION>|<get-VERSION>(){}[0]
+}

@@ -1,0 +1,65 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Versión SemVer (ej. 0.1.0)"
+        required: true
+
+jobs:
+  release:
+    runs-on: macos-latest
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Tests
+        run: ./gradlew :scanner-core:allTests apiCheck -PVERSION_NAME=${{ inputs.version }}
+
+      - name: Publicar Maven (GitHub Packages)
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./gradlew publishAllPublicationsToGitHubPackagesRepository -PVERSION_NAME=${{ inputs.version }}
+
+      - name: XCFramework Release
+        run: ./gradlew :scanner:assembleLaCaleraScannerReleaseXCFramework -PVERSION_NAME=${{ inputs.version }}
+
+      - name: Zip + checksum + Package.swift
+        id: xcf
+        run: |
+          cd scanner/build/XCFrameworks/release
+          zip -r -y LaCaleraScanner.xcframework.zip LaCaleraScanner.xcframework
+          CHECKSUM=$(swift package compute-checksum LaCaleraScanner.xcframework.zip)
+          cd "$GITHUB_WORKSPACE"
+          VERSION=${{ inputs.version }}
+          sed -i '' -E "s#releases/download/v[0-9.]+/#releases/download/v$VERSION/#" Package.swift
+          sed -i '' -E "s#checksum: \"[a-f0-9]+\"#checksum: \"$CHECKSUM\"#" Package.swift
+          sed -i '' -E "s#^VERSION_NAME=.*#VERSION_NAME=$VERSION#" gradle.properties
+          echo "checksum=$CHECKSUM" >> "$GITHUB_OUTPUT"
+
+      - name: Commit + tag + GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=${{ inputs.version }}
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Package.swift gradle.properties
+          git commit -m "release: v$VERSION"
+          git tag "v$VERSION"
+          git push origin HEAD --tags
+          gh release create "v$VERSION" \
+            scanner/build/XCFrameworks/release/LaCaleraScanner.xcframework.zip \
+            --title "v$VERSION" \
+            --notes "Maven: pe.lacalera.scanner:scanner:$VERSION (GitHub Packages) · SPM: checksum ${{ steps.xcf.outputs.checksum }}"

@@ -5,6 +5,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 // Swift-friendly a mano (ScannerConfigBuilder + callbacks explícitos).
 plugins {
     alias(libs.plugins.scanner.kmp.library)
+    alias(libs.plugins.scanner.publishing)
     alias(libs.plugins.scanner.compose)
 }
 

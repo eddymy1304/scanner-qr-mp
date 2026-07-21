@@ -52,5 +52,6 @@ public data class OverlayConfig(
     val laser: LaserConfig? = LaserConfig(),
     val showTorchButton: Boolean = true,
     val showCloseButton: Boolean = false,
+    val showSwitchCameraButton: Boolean = false,
     val successHighlight: Boolean = true,
 )

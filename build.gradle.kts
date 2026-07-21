@@ -6,4 +6,14 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform) apply false
     alias(libs.plugins.composeMultiplatform) apply false
     alias(libs.plugins.composeCompiler) apply false
+    alias(libs.plugins.binaryCompatibilityValidator)
+}
+
+// Vigila la API pública de los módulos de librería (apiDump / apiCheck en CI).
+apiValidation {
+    ignoredProjects += listOf("composeApp", "androidApp")
+    @OptIn(kotlinx.validation.ExperimentalBCVApi::class)
+    klib {
+        enabled = true
+    }
 }

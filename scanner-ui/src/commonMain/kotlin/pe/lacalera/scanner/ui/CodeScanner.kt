@@ -15,7 +15,9 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.lifecycle.compose.LifecycleStartEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -59,8 +61,16 @@ public fun CodeScanner(
     LaunchedEffect(viewModel, controller) {
         viewModel.uiState.collect { controller.internalState.value = it }
     }
+    val haptics = LocalHapticFeedback.current
+    val playBeep = rememberBeepPlayer()
     LaunchedEffect(viewModel) {
-        viewModel.events.collect { event -> currentOnEvent(event) }
+        viewModel.events.collect { event ->
+            if (event is ScannerEvent.Scanned) {
+                if (config.feedback.haptic) haptics.performHapticFeedback(HapticFeedbackType.LongPress)
+                if (config.feedback.sound) playBeep()
+            }
+            currentOnEvent(event)
+        }
     }
 
     val permission = rememberCameraPermissionController { granted, canRequestAgain ->
@@ -124,6 +134,7 @@ public fun CodeScanner(
                         config = overlayConfig,
                         onToggleTorch = { viewModel.onAction(ScannerAction.ToggleTorch) },
                         onClose = { viewModel.onAction(ScannerAction.Close) },
+                        onSwitchCamera = { viewModel.onAction(ScannerAction.SwitchCamera) },
                     )
                 }
             }

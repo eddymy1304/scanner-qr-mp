@@ -46,6 +46,7 @@ public fun BoxScope.DefaultScannerOverlay(
     config: OverlayConfig,
     onToggleTorch: () -> Unit,
     onClose: () -> Unit,
+    onSwitchCamera: () -> Unit = {},
 ) {
     val laserProgress = config.laser?.let { laser ->
         rememberInfiniteTransition(label = "laser").animateFloat(
@@ -183,6 +184,19 @@ public fun BoxScope.DefaultScannerOverlay(
             }
         }
     }
+
+    if (config.showSwitchCameraButton) {
+        OverlayCircleButton(
+            onClick = onSwitchCamera,
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(end = 24.dp, bottom = 40.dp),
+        ) {
+            Canvas(modifier = Modifier.size(22.dp)) {
+                drawSwitchCameraIcon(Color.White)
+            }
+        }
+    }
 }
 
 @Composable
@@ -231,6 +245,43 @@ private fun DrawScope.viewfinderRect(shape: ViewfinderShape): Rect? {
 
         ViewfinderShape.None -> null
     }
+}
+
+/** Dos flechas circulares (icono clásico de cambiar cámara). */
+private fun DrawScope.drawSwitchCameraIcon(color: Color) {
+    val stroke = Stroke(width = size.width * 0.11f, cap = StrokeCap.Round)
+    val inset = size.width * 0.12f
+    val arcSize = Size(size.width - inset * 2, size.height - inset * 2)
+    val topLeft = Offset(inset, inset)
+    drawArc(color, startAngle = -160f, sweepAngle = 140f, useCenter = false, topLeft = topLeft, size = arcSize, style = stroke)
+    drawArc(color, startAngle = 20f, sweepAngle = 140f, useCenter = false, topLeft = topLeft, size = arcSize, style = stroke)
+    // Puntas de flecha.
+    val r = arcSize.width / 2f
+    val cx = size.width / 2f
+    val cy = size.height / 2f
+    val tip = size.width * 0.16f
+    val rightTipX = cx + r * 0.94f
+    val rightTipY = cy - r * 0.34f
+    val leftTipX = cx - r * 0.94f
+    val leftTipY = cy + r * 0.34f
+    drawPath(
+        Path().apply {
+            moveTo(rightTipX - tip, rightTipY - tip * 0.2f)
+            lineTo(rightTipX + tip * 0.4f, rightTipY - tip * 0.6f)
+            lineTo(rightTipX, rightTipY + tip)
+            close()
+        },
+        color,
+    )
+    drawPath(
+        Path().apply {
+            moveTo(leftTipX + tip, leftTipY + tip * 0.2f)
+            lineTo(leftTipX - tip * 0.4f, leftTipY + tip * 0.6f)
+            lineTo(leftTipX, leftTipY - tip)
+            close()
+        },
+        color,
+    )
 }
 
 private fun DrawScope.drawLightningBolt(color: Color) {

@@ -13,6 +13,11 @@ pluginManagement {
     }
 }
 
+plugins {
+    // Aprovisiona automáticamente el JDK del daemon (gradle-daemon-jvm.properties).
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+}
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {

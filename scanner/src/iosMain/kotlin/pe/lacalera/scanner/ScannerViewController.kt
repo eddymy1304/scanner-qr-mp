@@ -43,6 +43,7 @@ public fun ScannerViewController(
         overlayConfig = OverlayConfig(
             showTorchButton = config.showTorchButton,
             showCloseButton = config.showCloseButton,
+            showSwitchCameraButton = config.showSwitchCameraButton,
             laser = if (config.laserEnabled) pe.lacalera.scanner.ui.LaserConfig() else null,
         ),
     )

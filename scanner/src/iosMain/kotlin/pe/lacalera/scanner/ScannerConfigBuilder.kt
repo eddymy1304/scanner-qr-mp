@@ -42,6 +42,7 @@ public class ScannerConfigBuilder {
     // Overlay
     public var showTorchButton: Boolean = true
     public var showCloseButton: Boolean = true
+    public var showSwitchCameraButton: Boolean = false
     public var laserEnabled: Boolean = true
 
     // Textos (localizables por la app consumidora)

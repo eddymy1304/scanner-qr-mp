@@ -35,8 +35,8 @@ Librería KMP de escaneo QR/Barcode reusable en proyectos Android, iOS (Swift) y
 - [x] **Fase 3** — UI + MVI: `ScannerViewModel`, permisos (Android+iOS), `DefaultScannerOverlay`, `QrScanner`/`CodeScanner`, `ScannerController`, lifecycle. Verificado en emulador (permisos, detección, SingleShot+resume, highlight).
 - [x] **Fase 4** — Motor iOS: `AVCaptureSession` + Vision en Kotlin/Native, `UIKitView` preview, permisos iOS. Compila para device+simulador; **pendiente afinar en dispositivo físico** (CPU, corners, focus, torch).
 - [x] **Fase 5** — Umbrella iOS: `ScannerViewController`, `ScannerConfigBuilder`, XCFramework, sample Swift (xcodegen). Verificado en simulador (UI Compose + estado de error sin cámara). SKIE pendiente: 0.10.13 no soporta Kotlin 2.4.10.
-- [ ] **Fase 6** — Features MVP: haptics/sonido, success highlight con corners, ROI, switch cámara, pinch/tap.
-- [ ] **Fase 7** — Publicación: vanniktech maven-publish → GH Packages, Package.swift + checksum en CI, README, binary-compatibility-validator, `v0.1.0`.
+- [x] **Fase 6** — Features MVP: haptic (LocalHapticFeedback) + beep (ToneGenerator/AudioServices), ROI real en Android (crop YUV->NV21 pre-ML Kit, verificado en emulador), botón switch cámara en overlay.
+- [x] **Fase 7** — Publicación: vanniktech maven-publish -> GH Packages (verificado con publishToMavenLocal), Package.swift (checksum lo pone el release workflow), README, BCV con klib dumps, CI (ci.yml/release.yml), daemon JVM 21 vía foojay resolver.
 
 ## Verificación por fase
 

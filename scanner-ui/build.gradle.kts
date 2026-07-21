@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.scanner.kmp.library)
+    alias(libs.plugins.scanner.publishing)
     alias(libs.plugins.scanner.compose)
 }
 
