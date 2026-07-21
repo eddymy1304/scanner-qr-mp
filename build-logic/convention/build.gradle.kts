@@ -23,10 +23,6 @@ gradlePlugin {
             id = "scanner.kmp.library"
             implementationClass = "KmpLibraryConventionPlugin"
         }
-        register("kmpApplication") {
-            id = "scanner.kmp.application"
-            implementationClass = "KmpApplicationConventionPlugin"
-        }
         register("composeMultiplatform") {
             id = "scanner.compose"
             implementationClass = "ComposeMultiplatformConventionPlugin"

@@ -13,10 +13,10 @@ internal fun VersionCatalog.version(alias: String): String =
     findVersion(alias).get().requiredVersion
 
 /**
- * Targets comunes de la librería: Android + los 3 targets de iOS.
+ * Targets iOS de la librería. Sin iosX64: Compose Multiplatform 1.11+
+ * ya no publica para simulador Intel.
  */
 internal fun KotlinMultiplatformExtension.configureIosTargets() {
     iosArm64()
     iosSimulatorArm64()
-    iosX64()
 }

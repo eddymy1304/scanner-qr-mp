@@ -10,11 +10,11 @@ import pe.lacalera.scanner.camera.createCameraEngine
 import pe.lacalera.scanner.core.engine.CameraEngine
 
 @Composable
-public actual fun rememberCameraEngine(): CameraEngine =
-    remember { createCameraEngine() }
+internal actual fun platformCameraEngineFactory(): () -> CameraEngine =
+    remember { { createCameraEngine() } }
 
 /**
- * Placeholder de Fase 2. En la Fase 4: UIKitView + AVCaptureVideoPreviewLayer.
+ * Placeholder de Fase 3. En la Fase 4: UIKitView + AVCaptureVideoPreviewLayer.
  */
 @Composable
 public actual fun CameraPreview(

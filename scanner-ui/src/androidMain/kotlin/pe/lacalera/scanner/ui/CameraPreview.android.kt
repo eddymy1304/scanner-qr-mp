@@ -12,9 +12,9 @@ import pe.lacalera.scanner.camera.createCameraEngine
 import pe.lacalera.scanner.core.engine.CameraEngine
 
 @Composable
-public actual fun rememberCameraEngine(): CameraEngine {
-    val context = LocalContext.current
-    return remember { createCameraEngine(context) }
+internal actual fun platformCameraEngineFactory(): () -> CameraEngine {
+    val appContext = LocalContext.current.applicationContext
+    return remember { { createCameraEngine(appContext) } }
 }
 
 @Composable

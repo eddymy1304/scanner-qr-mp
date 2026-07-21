@@ -1,13 +1,17 @@
+import org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode
+
 plugins {
-    alias(libs.plugins.scanner.kmp.application)
+    alias(libs.plugins.scanner.kmp.library)
     alias(libs.plugins.scanner.compose)
 }
 
 kotlin {
+    // El sample no necesita explicit API (es una app de demo, no una librería publicada).
+    explicitApi = ExplicitApiMode.Disabled
+
     listOf(
         iosArm64(),
         iosSimulatorArm64(),
-        iosX64(),
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
@@ -22,15 +26,5 @@ kotlin {
             implementation(compose.foundation)
             implementation(compose.material3)
         }
-        androidMain.dependencies {
-            implementation(libs.androidx.activity.compose)
-        }
-    }
-}
-
-android {
-    namespace = "pe.lacalera.scanner.sample"
-    defaultConfig {
-        applicationId = "pe.lacalera.scanner.sample"
     }
 }

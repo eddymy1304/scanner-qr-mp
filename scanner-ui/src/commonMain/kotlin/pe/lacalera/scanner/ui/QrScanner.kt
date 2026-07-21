@@ -1,24 +1,27 @@
 package pe.lacalera.scanner.ui
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
-import pe.lacalera.scanner.core.detection.DetectionFilter
-import pe.lacalera.scanner.core.engine.CameraRuntimeConfig
+import pe.lacalera.scanner.core.config.ScannerConfig
 import pe.lacalera.scanner.core.model.BarcodeFormat
 import pe.lacalera.scanner.core.model.ScanMode
 import pe.lacalera.scanner.core.model.ScanResult
 
 /**
- * Composable simple: preview + detección con defaults sensatos.
+ * Scanner de una línea con defaults sensatos:
+ * solo QR, [ScanMode.SingleShot] (detecta uno y deja de analizar), overlay con
+ * viewfinder + láser, permisos integrados.
  *
- * Fullscreen o embebido lo decide el [modifier] del caller
+ * ```
+ * QrScanner(onScanned = { result -> println(result.rawValue) })
+ * ```
+ *
+ * Fullscreen o embebido lo decide el [modifier]
  * (`Modifier.fillMaxSize()` vs `Modifier.size(280.dp)`).
- *
- * NOTA Fase 2: versión provisional sin ViewModel/permisos/overlay (llegan en Fase 3).
- * El caller debe garantizar el permiso de cámara antes de componer esto.
+ * Para configuración completa usa [CodeScanner].
  */
 @Composable
 public fun QrScanner(
@@ -27,20 +30,14 @@ public fun QrScanner(
     formats: Set<BarcodeFormat> = BarcodeFormat.QR_ONLY,
     scanMode: ScanMode = ScanMode.SingleShot,
 ) {
-    val engine = rememberCameraEngine()
-    val filter = remember(scanMode) { DetectionFilter(scanMode) }
-
-    LaunchedEffect(engine, filter, formats) {
-        engine.start(CameraRuntimeConfig(formats = formats))
-        filter.apply(engine.detections).collect { result ->
-            // SingleShot: dejar de analizar frames apenas hay resultado (la preview sigue viva).
-            if (scanMode is ScanMode.SingleShot) engine.pauseAnalysis()
-            onScanned(result)
-        }
-    }
-    DisposableEffect(engine) {
-        onDispose { engine.stop() }
-    }
-
-    CameraPreview(engine = engine, modifier = modifier)
+    val currentOnScanned by rememberUpdatedState(onScanned)
+    CodeScanner(
+        onEvent = { event ->
+            if (event is ScannerEvent.Scanned) currentOnScanned(event.result)
+        },
+        modifier = modifier,
+        config = remember(formats, scanMode) {
+            ScannerConfig(formats = formats, scanMode = scanMode)
+        },
+    )
 }

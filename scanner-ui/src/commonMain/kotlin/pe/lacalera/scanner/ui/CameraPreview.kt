@@ -5,15 +5,15 @@ import androidx.compose.ui.Modifier
 import pe.lacalera.scanner.core.engine.CameraEngine
 
 /**
- * Crea (y recuerda) el motor de cámara de la plataforma.
+ * Fábrica del motor de cámara de la plataforma (capturando el contexto necesario).
  * Android: CameraX + ML Kit. iOS: AVFoundation + Vision.
  */
 @Composable
-public expect fun rememberCameraEngine(): CameraEngine
+internal expect fun platformCameraEngineFactory(): () -> CameraEngine
 
 /**
  * Preview de la cámara del [engine]. No arranca ni detiene el motor:
- * eso lo orquesta el ViewModel/caller vía [CameraEngine.start]/[CameraEngine.stop].
+ * eso lo orquesta el [ScannerViewModel] vía [CameraEngine.start]/[CameraEngine.stop].
  */
 @Composable
 public expect fun CameraPreview(
