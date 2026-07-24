@@ -1,5 +1,6 @@
 name: Release
 
+# Lanzar manualmente desde Actions -> Release -> Run workflow
 on:
   workflow_dispatch:
     inputs:
