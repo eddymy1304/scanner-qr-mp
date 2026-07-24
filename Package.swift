@@ -14,7 +14,7 @@ let package = Package(
         .binaryTarget(
             name: "ScannerQrMp",
             url: "https://github.com/eddymy1304/scanner-qr-mp/releases/download/v0.2.0/ScannerQrMp.xcframework.zip",
-            checksum: "63e4cf99b58951e7566c8c398afd78f97cdad7ed97417102d0fad0590baef58a" // REEMPLAZADO_POR_CI
+            checksum: "57ef0ca48a8c63563ad3b6ab1551a3f8fea425f3b97b7db18118f42dabf02774" // REEMPLAZADO_POR_CI
         )
     ]
 )
