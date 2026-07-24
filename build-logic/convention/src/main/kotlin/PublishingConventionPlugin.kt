@@ -21,7 +21,7 @@ class PublishingConventionPlugin : Plugin<Project> {
             extensions.configure<MavenPublishBaseExtension> {
                 pom {
                     name.set(project.name)
-                    description.set("Librería Kotlin Multiplatform de escaneo QR/Barcode (Android + iOS) — La Calera")
+                    description.set("Librería Kotlin Multiplatform de escaneo QR/Barcode (Android + iOS)")
                     url.set("https://github.com/eddymy1304/scanner-qr-mp")
                     licenses {
                         license {
@@ -31,8 +31,8 @@ class PublishingConventionPlugin : Plugin<Project> {
                     }
                     developers {
                         developer {
-                            id.set("lacalera")
-                            name.set("La Calera")
+                            id.set("eddymy1304")
+                            name.set("Eddy Mendoza")
                         }
                     }
                     scm {

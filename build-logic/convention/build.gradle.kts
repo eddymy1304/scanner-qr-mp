@@ -2,7 +2,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "pe.lacalera.scanner.buildlogic"
+group = "com.eddymy1304.scanner.buildlogic"
 
 java {
     toolchain {

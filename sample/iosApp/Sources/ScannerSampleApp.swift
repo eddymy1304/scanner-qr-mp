@@ -1,5 +1,5 @@
 import SwiftUI
-import LaCaleraScanner
+import ScannerQrMp
 
 @main
 struct ScannerSampleApp: App {

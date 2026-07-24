@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "pe.lacalera.scanner.sample"
+    namespace = "com.eddymy1304.scanner.sample"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "pe.lacalera.scanner.sample"
+        applicationId = "com.eddymy1304.scanner.sample"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1

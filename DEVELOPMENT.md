@@ -21,7 +21,7 @@ Composable ──ScannerAction──▶ ScannerViewModel ──▶ CameraEngine 
 | `scanner-core` | Dominio puro: modelos, configs, `ScanMode`, `DetectionFilter`, contrato `CameraEngine`. Testeable en JVM | coroutines |
 | `scanner-camera` | Motores: `AndroidCameraEngine` (CameraX + ML Kit bundled) / `IosCameraEngine` (AVCaptureSession + Vision) | core |
 | `scanner-ui` | Composables, `ScannerViewModel`, overlay, permisos, preview expect/actual | core, camera, CMP |
-| `scanner` | Umbrella: `api()` de los 3, XCFramework `LaCaleraScanner`, `ScannerViewController` para Swift | los 3 |
+| `scanner` | Umbrella: `api()` de los 3, XCFramework `ScannerQrMp`, `ScannerViewController` para Swift | los 3 |
 | `sample/composeApp` | Demo KMP (Android + iOS) | scanner |
 | `sample/androidApp` | App Android del demo (AGP 9 no permite application+KMP en un módulo) | composeApp |
 | `sample/iosApp` | App Swift consumiendo el XCFramework. Proyecto generado: `xcodegen generate` | XCFramework |
@@ -37,7 +37,7 @@ Composable ──ScannerAction──▶ ScannerViewModel ──▶ CameraEngine 
 ./gradlew :scanner-core:allTests                                  # tests core (JVM + iOS sim)
 ./gradlew :sample:androidApp:assembleDebug                        # demo Android
 ./gradlew :sample:composeApp:linkDebugFrameworkIosSimulatorArm64  # demo iOS (CMP)
-./gradlew :scanner:assembleLaCaleraScannerReleaseXCFramework      # XCFramework
+./gradlew :scanner:assembleScannerQrMpReleaseXCFramework      # XCFramework
 ./gradlew apiCheck                                                # API pública (BCV, dumps en */api/)
 ./gradlew publishToMavenLocal                                     # ensayo de publicación
 cd sample/iosApp && xcodegen generate                             # proyecto Xcode del sample Swift

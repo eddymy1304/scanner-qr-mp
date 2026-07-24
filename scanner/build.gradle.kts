@@ -11,10 +11,10 @@ plugins {
 
 kotlin {
     // XCFramework para apps iOS nativas (SPM / integración manual).
-    val xcf = XCFramework("LaCaleraScanner")
+    val xcf = XCFramework("ScannerQrMp")
     listOf(iosArm64(), iosSimulatorArm64()).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "LaCaleraScanner"
+            baseName = "ScannerQrMp"
             isStatic = true
             // Exporta la API de los 3 módulos en un solo framework.
             export(projects.scannerCore)

@@ -1,0 +1,17 @@
+package com.eddymy1304.scanner.sample
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
+        super.onCreate(savedInstanceState)
+        // La librería maneja el permiso de cámara con UI integrada.
+        setContent {
+            App()
+        }
+    }
+}

@@ -30,8 +30,8 @@ class KmpLibraryConventionPlugin : Plugin<Project> {
                 (this as ExtensionAware).extensions.configure<KotlinMultiplatformAndroidLibraryTarget>(
                     "androidLibrary",
                 ) {
-                    // :scanner-core -> pe.lacalera.scanner.core, :scanner -> pe.lacalera.scanner
-                    namespace = "pe.lacalera." + project.name.replace("-", ".")
+                    // :scanner-core -> com.eddymy1304.scanner.core, :scanner -> com.eddymy1304.scanner
+                    namespace = "com.eddymy1304." + project.name.replace("-", ".")
                     compileSdk = libs.version("android-compileSdk").toInt()
                     minSdk = libs.version("android-minSdk").toInt()
                     // Habilita los unit tests JVM (commonTest) del target Android.

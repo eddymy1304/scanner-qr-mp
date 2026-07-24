@@ -5,15 +5,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "LaCaleraScanner",
+    name: "ScannerQrMp",
     platforms: [.iOS(.v15)],
     products: [
-        .library(name: "LaCaleraScanner", targets: ["LaCaleraScanner"])
+        .library(name: "ScannerQrMp", targets: ["ScannerQrMp"])
     ],
     targets: [
         .binaryTarget(
-            name: "LaCaleraScanner",
-            url: "https://github.com/eddymy1304/scanner-qr-mp/releases/download/v0.1.0/LaCaleraScanner.xcframework.zip",
+            name: "ScannerQrMp",
+            url: "https://github.com/eddymy1304/scanner-qr-mp/releases/download/v0.2.0/ScannerQrMp.xcframework.zip",
             checksum: "63e4cf99b58951e7566c8c398afd78f97cdad7ed97417102d0fad0590baef58a" // REEMPLAZADO_POR_CI
         )
     ]

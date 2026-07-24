@@ -17,7 +17,7 @@ Librería KMP de escaneo QR/Barcode reusable en proyectos Android, iOS (Swift) y
 - `scanner-core` — KMP puro: `ScanResult`, `ScannerConfig`, `ScanMode`, `DetectionFilter` (dedupe/debounce, testeable), interfaz `CameraEngine`.
 - `scanner-camera` — expect/actual del motor por plataforma.
 - `scanner-ui` — Composables (`QrScanner` simple / `CodeScanner` avanzado), `ScannerViewModel` MVI, overlay, permisos.
-- `scanner` — Umbrella: exporta los 3, XCFramework `LaCaleraScanner`, `ScannerViewController` para Swift.
+- `scanner` — Umbrella: exporta los 3, XCFramework `ScannerQrMp`, `ScannerViewController` para Swift.
 - `sample/composeApp` — Demo Android+iOS. `sample/iosApp` — Xcode Swift consumiendo el framework (Fase 5).
 
 ## Requisitos clave

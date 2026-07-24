@@ -39,7 +39,7 @@ dependencyResolutionManagement {
 
 // build.gradle.kts del módulo
 dependencies {
-    implementation("pe.lacalera.scanner:scanner:0.1.0")
+    implementation("com.eddymy1304.scanner:scanner:0.2.0")
 }
 ```
 
@@ -50,7 +50,7 @@ dependencies {
 En Xcode: **File → Add Package Dependencies** → `https://github.com/eddymy1304/scanner-qr-mp`, o en `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/eddymy1304/scanner-qr-mp", from: "0.1.0")
+.package(url: "https://github.com/eddymy1304/scanner-qr-mp", from: "0.2.0")
 ```
 
 Y en el `Info.plist` de tu app:
@@ -67,7 +67,7 @@ Y en el `Info.plist` de tu app:
 ## Uso — Nivel 1: una línea
 
 ```kotlin
-import pe.lacalera.scanner.ui.QrScanner
+import com.eddymy1304.scanner.ui.QrScanner
 
 QrScanner(onScanned = { result -> println(result.rawValue) })
 ```
@@ -299,7 +299,7 @@ config = ScannerConfig(
 ## iOS nativo (Swift)
 
 ```swift
-import LaCaleraScanner
+import ScannerQrMp
 
 let config = ScannerConfigBuilder()
 config.formats = [BarcodeFormat.qrcode, BarcodeFormat.ean13]   // entries en minúsculas

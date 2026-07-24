@@ -1,6 +1,6 @@
 name: ScannerSampleIos
 options:
-  bundleIdPrefix: pe.lacalera.scanner
+  bundleIdPrefix: com.eddymy1304.scanner
   deploymentTarget:
     iOS: "15.0"
 targets:
@@ -18,7 +18,7 @@ targets:
         CFBundleDisplayName: "Scanner Swift"
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: pe.lacalera.scanner.sample.ios
+        PRODUCT_BUNDLE_IDENTIFIER: com.eddymy1304.scanner.sample.ios
         SWIFT_VERSION: "5.9"
         # Framework estático: solo link, sin embed.
         FRAMEWORK_SEARCH_PATHS:
@@ -26,5 +26,5 @@ targets:
         # CMP 1.11+ ya no publica x86_64 para simulador (solo arm64).
         "EXCLUDED_ARCHS[sdk=iphonesimulator*]": x86_64
     dependencies:
-      - framework: ../../scanner/build/XCFrameworks/debug/LaCaleraScanner.xcframework
+      - framework: ../../scanner/build/XCFrameworks/debug/ScannerQrMp.xcframework
         embed: false

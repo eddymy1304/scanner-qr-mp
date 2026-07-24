@@ -34,14 +34,14 @@ jobs:
         run: ./gradlew publishAllPublicationsToGitHubPackagesRepository -PVERSION_NAME=${{ inputs.version }}
 
       - name: XCFramework Release
-        run: ./gradlew :scanner:assembleLaCaleraScannerReleaseXCFramework -PVERSION_NAME=${{ inputs.version }}
+        run: ./gradlew :scanner:assembleScannerQrMpReleaseXCFramework -PVERSION_NAME=${{ inputs.version }}
 
       - name: Zip + checksum + Package.swift
         id: xcf
         run: |
           cd scanner/build/XCFrameworks/release
-          zip -r -y LaCaleraScanner.xcframework.zip LaCaleraScanner.xcframework
-          CHECKSUM=$(swift package compute-checksum LaCaleraScanner.xcframework.zip)
+          zip -r -y ScannerQrMp.xcframework.zip ScannerQrMp.xcframework
+          CHECKSUM=$(swift package compute-checksum ScannerQrMp.xcframework.zip)
           cd "$GITHUB_WORKSPACE"
           VERSION=${{ inputs.version }}
           sed -i '' -E "s#releases/download/v[0-9.]+/#releases/download/v$VERSION/#" Package.swift
@@ -61,6 +61,6 @@ jobs:
           git tag "v$VERSION"
           git push origin HEAD --tags
           gh release create "v$VERSION" \
-            scanner/build/XCFrameworks/release/LaCaleraScanner.xcframework.zip \
+            scanner/build/XCFrameworks/release/ScannerQrMp.xcframework.zip \
             --title "v$VERSION" \
-            --notes "Maven: pe.lacalera.scanner:scanner:$VERSION (GitHub Packages) · SPM: checksum ${{ steps.xcf.outputs.checksum }}"
+            --notes "Maven: com.eddymy1304.scanner:scanner:$VERSION (GitHub Packages) · SPM: checksum ${{ steps.xcf.outputs.checksum }}"
