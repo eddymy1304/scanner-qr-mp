@@ -22,7 +22,7 @@ class PublishingConventionPlugin : Plugin<Project> {
                 pom {
                     name.set(project.name)
                     description.set("Librería Kotlin Multiplatform de escaneo QR/Barcode (Android + iOS) — La Calera")
-                    url.set("https://github.com/lacalera/scanner-qr-mp")
+                    url.set("https://github.com/eddymy1304/scanner-qr-mp")
                     licenses {
                         license {
                             name.set("MIT License")
@@ -36,8 +36,8 @@ class PublishingConventionPlugin : Plugin<Project> {
                         }
                     }
                     scm {
-                        url.set("https://github.com/lacalera/scanner-qr-mp")
-                        connection.set("scm:git:git://github.com/lacalera/scanner-qr-mp.git")
+                        url.set("https://github.com/eddymy1304/scanner-qr-mp")
+                        connection.set("scm:git:git://github.com/eddymy1304/scanner-qr-mp.git")
                     }
                 }
             }
@@ -46,7 +46,7 @@ class PublishingConventionPlugin : Plugin<Project> {
                 repositories.maven(
                     Action<MavenArtifactRepository> {
                         name = "GitHubPackages"
-                        setUrl("https://maven.pkg.github.com/lacalera/scanner-qr-mp")
+                        setUrl("https://maven.pkg.github.com/eddymy1304/scanner-qr-mp")
                         credentials(
                             Action<PasswordCredentials> {
                                 username = providers.environmentVariable("GITHUB_ACTOR").orNull

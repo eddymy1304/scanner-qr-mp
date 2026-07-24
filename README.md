@@ -28,7 +28,7 @@ Librería de escaneo **QR / códigos de barras** para **Android**, **iOS** y **K
 dependencyResolutionManagement {
     repositories {
         maven {
-            url = uri("https://maven.pkg.github.com/lacalera/scanner-qr-mp")
+            url = uri("https://maven.pkg.github.com/eddymy1304/scanner-qr-mp")
             credentials {
                 username = providers.gradleProperty("gpr.user").get()   // tu usuario GitHub
                 password = providers.gradleProperty("gpr.key").get()    // token con read:packages
@@ -47,10 +47,10 @@ dependencies {
 
 ### Proyecto iOS nativo (Swift Package Manager)
 
-En Xcode: **File → Add Package Dependencies** → `https://github.com/lacalera/scanner-qr-mp`, o en `Package.swift`:
+En Xcode: **File → Add Package Dependencies** → `https://github.com/eddymy1304/scanner-qr-mp`, o en `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/lacalera/scanner-qr-mp", from: "0.1.0")
+.package(url: "https://github.com/eddymy1304/scanner-qr-mp", from: "0.1.0")
 ```
 
 Y en el `Info.plist` de tu app:
